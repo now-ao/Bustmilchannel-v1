@@ -1,4 +1,6 @@
 import type { Config } from "tailwindcss";
+// FIX: Replace require with an ES module import for TypeScript compatibility.
+import tailwindcssAnimate from "tailwindcss-animate";
 
 export default {
   darkMode: ["class"],
@@ -99,5 +101,5 @@ export default {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [tailwindcssAnimate],
 } satisfies Config;
