@@ -1,4 +1,5 @@
 {
-  "name": "Bustmil Channel",
-  "description": "Bustmil Channel: A complete and modern ERP/CRM/POS system for supermarkets, designed to streamline operations from inventory management to customer sales. Features an AI-powered assistant to provide business insights."
+  "name": "BustmilBustmil Channel",
+  "description": "Bustmil Channel: A complete and modern ERP/CRM/POS system for supermarkets, designed to streamline operations from inventory management to customer sales. Features an AI-powered assistant to provide business insights.",
+  "requestFramePermissions": []
 }
