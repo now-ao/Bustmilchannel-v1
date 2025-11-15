@@ -59,28 +59,29 @@ const AppContent = () => {
         <Topbar />
         <Routes>
           <Route path="/login" element={<Navigate to="/" replace />} />
-          <Route path="/" element={<ProtectedRoute><Sales /></ProtectedRoute>} />
-        <Route path="/produtos" element={<ProtectedRoute allowedRoles={['admin']}><Products /></ProtectedRoute>} />
-        <Route path="/clientes" element={<ProtectedRoute><Clients /></ProtectedRoute>} />
-        <Route path="/fornecedores" element={<ProtectedRoute allowedRoles={['admin']}><Suppliers /></ProtectedRoute>} />
-        <Route path="/compras" element={<ProtectedRoute allowedRoles={['admin']}><Purchases /></ProtectedRoute>} />
-        <Route path="/despesas" element={<ProtectedRoute allowedRoles={['admin']}><Expenses /></ProtectedRoute>} />
-        <Route path="/funcionarios" element={<ProtectedRoute allowedRoles={['admin']}><Employees /></ProtectedRoute>} />
-        <Route path="/orcamentos" element={<ProtectedRoute><Budgets /></ProtectedRoute>} />
-        <Route path="/ordens-servico" element={<ProtectedRoute><ServiceOrders /></ProtectedRoute>} />
-        <Route path="/contratos" element={<ProtectedRoute allowedRoles={['admin']}><Contracts /></ProtectedRoute>} />
-        <Route path="/centros-custo" element={<ProtectedRoute allowedRoles={['admin']}><CostCenters /></ProtectedRoute>} />
-        <Route path="/plano-contas" element={<ProtectedRoute allowedRoles={['admin']}><ChartOfAccounts /></ProtectedRoute>} />
-        <Route path="/ativo-fixo" element={<ProtectedRoute allowedRoles={['admin']}><FixedAssets /></ProtectedRoute>} />
-        <Route path="/ponto-eletronico" element={<ProtectedRoute allowedRoles={['admin']}><TimeClocks /></ProtectedRoute>} />
-        <Route path="/ordens-producao" element={<ProtectedRoute allowedRoles={['admin']}><ProductionOrders /></ProtectedRoute>} />
-        <Route path="/faturas" element={<ProtectedRoute><Invoices /></ProtectedRoute>} />
-        <Route path="/relatorios" element={<ProtectedRoute allowedRoles={['admin']}><Reports /></ProtectedRoute>} />
-        <Route path="/caixa" element={<ProtectedRoute><CashManagement /></ProtectedRoute>} />
-        <Route path="/fluxo-caixa" element={<ProtectedRoute allowedRoles={['admin']}><CashFlow /></ProtectedRoute>} />
-        <Route path="/configuracoes" element={<ProtectedRoute allowedRoles={['admin']}><Settings /></ProtectedRoute>} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+          {/* FIX: Explicitly pass children to ProtectedRoute to resolve TypeScript error */}
+          <Route path="/" element={<ProtectedRoute children={<Sales />} />} />
+          <Route path="/produtos" element={<ProtectedRoute allowedRoles={['admin']} children={<Products />} />} />
+          <Route path="/clientes" element={<ProtectedRoute children={<Clients />} />} />
+          <Route path="/fornecedores" element={<ProtectedRoute allowedRoles={['admin']} children={<Suppliers />} />} />
+          <Route path="/compras" element={<ProtectedRoute allowedRoles={['admin']} children={<Purchases />} />} />
+          <Route path="/despesas" element={<ProtectedRoute allowedRoles={['admin']} children={<Expenses />} />} />
+          <Route path="/funcionarios" element={<ProtectedRoute allowedRoles={['admin']} children={<Employees />} />} />
+          <Route path="/orcamentos" element={<ProtectedRoute children={<Budgets />} />} />
+          <Route path="/ordens-servico" element={<ProtectedRoute children={<ServiceOrders />} />} />
+          <Route path="/contratos" element={<ProtectedRoute allowedRoles={['admin']} children={<Contracts />} />} />
+          <Route path="/centros-custo" element={<ProtectedRoute allowedRoles={['admin']} children={<CostCenters />} />} />
+          <Route path="/plano-contas" element={<ProtectedRoute allowedRoles={['admin']} children={<ChartOfAccounts />} />} />
+          <Route path="/ativo-fixo" element={<ProtectedRoute allowedRoles={['admin']} children={<FixedAssets />} />} />
+          <Route path="/ponto-eletronico" element={<ProtectedRoute allowedRoles={['admin']} children={<TimeClocks />} />} />
+          <Route path="/ordens-producao" element={<ProtectedRoute allowedRoles={['admin']} children={<ProductionOrders />} />} />
+          <Route path="/faturas" element={<ProtectedRoute children={<Invoices />} />} />
+          <Route path="/relatorios" element={<ProtectedRoute allowedRoles={['admin']} children={<Reports />} />} />
+          <Route path="/caixa" element={<ProtectedRoute children={<CashManagement />} />} />
+          <Route path="/fluxo-caixa" element={<ProtectedRoute allowedRoles={['admin']} children={<CashFlow />} />} />
+          <Route path="/configuracoes" element={<ProtectedRoute allowedRoles={['admin']} children={<Settings />} />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
       </div>
     </div>
   );
